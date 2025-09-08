@@ -4,6 +4,7 @@
 #include "event_poller.h"
 #include "poller_select.h"
 #include "poller_epoll.h"
+#include "poller_iocp.h"
 #include "helper/profile.h"
 
 namespace KBEngine { 
@@ -35,7 +36,6 @@ bool EventPoller::registerForRead(int fd,
 	{
 		return false;
 	}
-
 	fdReadHandlers_[ fd ] = handler;
 
 	return true;
@@ -59,16 +59,22 @@ bool EventPoller::registerForWrite(int fd,
 bool EventPoller::deregisterForRead(int fd)
 {
 	fdReadHandlers_.erase(fd);
-
+#ifdef USE_IOCP
+	return true;
+#else
 	return this->doDeregisterForRead(fd);
+#endif
 }
 
 //-------------------------------------------------------------------------------------
 bool EventPoller::deregisterForWrite(int fd)
 {
 	fdWriteHandlers_.erase(fd);
-
+#ifdef USE_IOCP
+	return true;
+#else
 	return this->doDeregisterForWrite(fd);
+#endif
 }
 
 //-------------------------------------------------------------------------------------
@@ -185,7 +191,11 @@ EventPoller * EventPoller::create()
 #ifdef HAS_EPOLL
 	return new EpollPoller();
 #else
+#ifdef USE_IOCP
+	return new IOCPPoller();
+#else
 	return new SelectPoller();
+#endif
 #endif // HAS_EPOLL
 }
 

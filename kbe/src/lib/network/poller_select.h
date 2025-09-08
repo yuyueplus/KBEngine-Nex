@@ -11,6 +11,8 @@ namespace Network
 
 #ifndef HAS_EPOLL
 
+#ifndef USE_IOCP
+
 class SelectPoller : public EventPoller
 {
 public:
@@ -39,6 +41,7 @@ private:
 	int							fdWriteCount_;
 };
 
+#endif
 
 #endif // HAS_EPOLL
 

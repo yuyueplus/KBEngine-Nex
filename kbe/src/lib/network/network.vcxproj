@@ -202,6 +202,7 @@
     <ClCompile Include="packet_receiver.cpp" />
     <ClCompile Include="packet_sender.cpp" />
     <ClCompile Include="poller_epoll.cpp" />
+    <ClCompile Include="poller_iocp.cpp" />
     <ClCompile Include="poller_select.cpp" />
     <ClCompile Include="tcp_packet.cpp" />
     <ClCompile Include="tcp_packet_receiver.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="websocket_packet_filter.cpp" />
     <ClCompile Include="websocket_packet_reader.cpp" />
     <ClCompile Include="websocket_protocol.cpp" />
+    <ClCompile Include="wepoll.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="address.h" />
@@ -246,6 +248,7 @@
     <ClInclude Include="packet_receiver.h" />
     <ClInclude Include="packet_sender.h" />
     <ClInclude Include="poller_epoll.h" />
+    <ClInclude Include="poller_iocp.h" />
     <ClInclude Include="poller_select.h" />
     <ClInclude Include="tcp_packet.h" />
     <ClInclude Include="tcp_packet_receiver.h" />
@@ -256,6 +259,7 @@
     <ClInclude Include="websocket_packet_filter.h" />
     <ClInclude Include="websocket_packet_reader.h" />
     <ClInclude Include="websocket_protocol.h" />
+    <ClInclude Include="wepoll.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bundle.inl" />

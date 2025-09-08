@@ -3,6 +3,10 @@
 #ifndef KBE_NETWORK_COMMON_H
 #define KBE_NETWORK_COMMON_H
 
+#if KBE_PLATFORM == PLATFORM_WIN32
+#define USE_IOCP
+#endif
+
 // common include
 #include "common/common.h"
 #include "helper/debug_option.h"

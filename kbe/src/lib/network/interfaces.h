@@ -3,6 +3,8 @@
 #ifndef KBE_NETWORK_INTERFACES_H
 #define KBE_NETWORK_INTERFACES_H
 
+#include "common.h"
+
 namespace KBEngine { 
 namespace Network
 {

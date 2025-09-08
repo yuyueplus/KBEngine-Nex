@@ -7,6 +7,7 @@
 namespace KBEngine { 
 
 #ifndef HAS_EPOLL
+#ifndef USE_IOCP
 
 ProfileVal g_idleProfile("Idle");
 
@@ -250,7 +251,7 @@ bool SelectPoller::doDeregisterForWrite(int fd)
 	return true;
 }
 
+#endif
 #endif // HAS_EPOLL
 
-}
 }

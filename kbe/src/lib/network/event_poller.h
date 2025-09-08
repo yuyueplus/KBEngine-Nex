@@ -26,10 +26,9 @@ public:
 
 	bool registerForRead(int fd, InputNotificationHandler * handler);
 	bool registerForWrite(int fd, OutputNotificationHandler * handler);
-
+	
 	bool deregisterForRead(int fd);
 	bool deregisterForWrite(int fd);
-
 
 	virtual int processPendingEvents(double maxWait) = 0;
 	virtual int getFileDescriptor() const;
@@ -43,6 +42,7 @@ public:
 	OutputNotificationHandler* findForWrite(int fd);
 
 protected:
+
 	virtual bool doRegisterForRead(int fd) = 0;
 	virtual bool doRegisterForWrite(int fd) = 0;
 
