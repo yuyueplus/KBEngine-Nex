@@ -7,7 +7,7 @@
 namespace KBEngine { 
 
 #ifndef HAS_EPOLL
-#ifndef USE_IOCP
+#ifndef USE_WEPOLL
 
 ProfileVal g_idleProfile("Idle");
 

@@ -4,7 +4,7 @@
 #include "event_poller.h"
 #include "poller_select.h"
 #include "poller_epoll.h"
-#include "poller_iocp.h"
+#include "poller_wepoll.h"
 #include "helper/profile.h"
 
 namespace KBEngine { 
@@ -191,8 +191,8 @@ EventPoller * EventPoller::create()
 #ifdef HAS_EPOLL
 	return new EpollPoller();
 #else
-#ifdef USE_IOCP
-	return new IOCPPoller();
+#ifdef USE_WEPOLL
+	return new WEpollPoller();
 #else
 	return new SelectPoller();
 #endif

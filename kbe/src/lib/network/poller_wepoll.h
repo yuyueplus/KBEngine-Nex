@@ -1,18 +1,18 @@
-#ifndef KBE_IOCP_POLLER_H
-#define KBE_IOCP_POLLER_H
+#ifndef KBE_WEPOLL_POLLER_H
+#define KBE_WEPOLL_POLLER_H
 
 #include "event_poller.h"
-#ifndef HAS_IOCP
+#ifdef USE_WEPOLL
 namespace KBEngine {
 namespace Network
 {
 
 
-class IOCPPoller : public EventPoller
+class WEpollPoller : public EventPoller
 {
 public:
-	IOCPPoller(int expectedSize = 10);
-	virtual ~IOCPPoller();
+	WEpollPoller(int expectedSize = 10);
+	virtual ~WEpollPoller();
 
 protected:
 	virtual bool doRegisterForRead(int fd)

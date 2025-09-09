@@ -11,7 +11,7 @@ namespace Network
 
 #ifndef HAS_EPOLL
 
-#ifndef USE_IOCP
+#ifndef USE_WEPOLL
 
 class SelectPoller : public EventPoller
 {

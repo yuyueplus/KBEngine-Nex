@@ -4,7 +4,7 @@
 #define KBE_NETWORK_COMMON_H
 
 #if KBE_PLATFORM == PLATFORM_WIN32
-#define USE_IOCP
+#define USE_WEPOLL
 #endif
 
 // common include

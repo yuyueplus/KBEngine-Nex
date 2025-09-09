@@ -135,7 +135,7 @@
     <ClCompile Include="http_utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="poller_iocp.cpp">
+    <ClCompile Include="poller_wepoll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="wepoll.c">
@@ -269,7 +269,7 @@
     <ClInclude Include="kcp_packet_sender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="poller_iocp.h">
+    <ClInclude Include="poller_wepoll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="wepoll.h">

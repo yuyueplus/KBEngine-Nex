@@ -1,10 +1,10 @@
 // Copyright 2008-2018 Yolo Technologies, Inc. All Rights Reserved. https://www.comblockengine.com
 
 
-#include "poller_iocp.h"
+#include "poller_wepoll.h"
 #include "helper/profile.h"
 
-#ifdef USE_IOCP
+#ifdef USE_WEPOLL
 #include "wepoll.h"
 
 namespace KBEngine {
@@ -15,7 +15,7 @@ namespace Network
 {
 
 //-------------------------------------------------------------------------------------
-IOCPPoller::IOCPPoller(int expectedSize) :
+WEpollPoller::WEpollPoller(int expectedSize) :
 	epfd_((int)epoll_create(expectedSize))
 {
 	if (epfd_ == -1)
@@ -26,7 +26,7 @@ IOCPPoller::IOCPPoller(int expectedSize) :
 };
 
 //-------------------------------------------------------------------------------------
-IOCPPoller::~IOCPPoller()
+WEpollPoller::~WEpollPoller()
 {
 	if (epfd_ != -1)
 	{
@@ -35,7 +35,7 @@ IOCPPoller::~IOCPPoller()
 }
 
 //-------------------------------------------------------------------------------------
-bool IOCPPoller::doRegister(int fd, bool isRead, bool isRegister)
+bool WEpollPoller::doRegister(int fd, bool isRead, bool isRegister)
 {
 	struct epoll_event ev;
 	memset(&ev, 0, sizeof(ev)); // stop valgrind warning
@@ -87,7 +87,7 @@ bool IOCPPoller::doRegister(int fd, bool isRead, bool isRegister)
 }
 
 //-------------------------------------------------------------------------------------
-int IOCPPoller::processPendingEvents(double maxWait)
+int WEpollPoller::processPendingEvents(double maxWait)
 {
 	const int MAX_EVENTS = 10;
 	struct epoll_event events[MAX_EVENTS];
